@@ -1,0 +1,18 @@
+.form-sign-up {
+    width: 50%;
+    .link-log-in{
+        display: inline-block;;
+        font-size: x-large;
+        cursor: pointer;
+        margin-top: 20px;
+        color: rgb(48, 48, 48);
+        &:hover{
+            color: black
+        }
+    }
+    .button-custom {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+

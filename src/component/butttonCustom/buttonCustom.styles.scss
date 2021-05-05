@@ -1,11 +1,21 @@
 .buttonCustom {
-    background-color: grey;
-    border: none;
-    color: white;
-    padding: 15px 62px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 26px;
-    border-radius: 50px;
+  background-color: white;
+  color: #5c5c5c;
+  padding: 15px 45px;
+  font-size: 24px;
+  border-radius: 100px;
+  border-width: 3px;
+  border-color: #5c5c5c;
+  border-style: solid;
+  cursor: pointer;
+  .text-button,
+  img {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
   }
+  img {
+    width: 35px;
+    height: 35px;
+  }
+}

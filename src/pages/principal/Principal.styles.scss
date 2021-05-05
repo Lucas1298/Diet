@@ -18,6 +18,10 @@
   }
 }
 
+.principal.active{
+    visibility: none  !important;
+}
+
 .logo{
   float: left;
   width: 40px;

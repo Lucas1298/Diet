@@ -1,0 +1,36 @@
+.form-sign-in {
+    width: 50%;
+    transition: margin-left 250ms ease-out;
+    &.on {
+        margin-left: 0%;
+    }
+    &.off {
+        margin-left: -50%;
+    }
+    .forgot-password {
+        display: inline-block;;
+        font-size: 20px;
+        cursor: pointer;
+        margin-top: 20px;
+        color: rgb(48, 48, 48);
+        text-decoration:underline;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    .button-log-in {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .link-sign-in {
+        display: inline-block;;
+        font-size: x-large;
+        cursor: pointer;
+        margin-top: 50px;
+        color: rgb(48, 48, 48);
+        &:hover{
+            color: black
+        }
+    }
+}

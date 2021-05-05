@@ -1,0 +1,8 @@
+.form-container {
+    width: 100%;
+    overflow: hidden;
+    .form-inner{
+        display: flex;
+        width: 200%;
+    }
+}

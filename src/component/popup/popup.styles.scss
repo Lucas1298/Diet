@@ -1,5 +1,4 @@
 .overlay {
-	background: rgba(0,0,0,.3);
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -9,38 +8,129 @@
 	justify-content: center;
 	display: flex;
 
-	.pop-up{
-		background: #F8F8F8;
-		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-		border-radius: 3px;
-		font-family: 'Montserrat', sans-serif;
-		padding-bottom: 50px;
-		padding-top: 50px;
-		padding-right: 20px;
-		padding-left: 20px;
+	&.on {
+		animation: background-fade-in 500ms ease-in forwards;
+	}
+	&.off {
+		animation: background-fade-out 500ms 500ms ease-in both;
+	}
+	.pop-up {
+		background: #f8f8f8;
+		box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+		border-radius: 8px;
+		font-family: "Montserrat", sans-serif;
 		text-align: center;
-		width: 600px;
-		transition: .3s ease all;
-		transform: scale(0.7);
 
-		.logo-principal{
-  			 width: 25%;
-			 height: 25%;
+		&.on {
+			animation: small-to-big 500ms both;
 		}
+		&.off {
+			animation: big-to-small 500ms 300ms both;
+		}
+		.container {
+			&.on{
+				animation: opacity-fade-in 500ms 300ms both;
+			}
+			&.off{
+				animation: opacity-fade-out 500ms both;
+			}
 
-		.parrafo{
-			font-size: x-large
-			
-		}
-		.sign-in-and-sign-up{
-			margin-bottom: 20px;
-			margin-left: 20px;
-			margin-right: 20px;
-			text-align: left;
-		}
-		.button-google{
-			margin: 20px;
+			.material-icons {
+				font-size: 40px;
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				animation: opacity-fade 500ms 500ms both;
+				transition: transform 200ms ease-in-out;
+				cursor: pointer;
+			}
+
+			.material-icons:hover {
+				transform: rotate(95deg);
+			}
+
+			.logo {
+				width: 10%;
+				height: 10%;
+			}
+
+			.title-log-in {
+				margin-top: 40px;
+				font-size: 35px;
+			}
+
+			.paragraph {
+				font-size: x-large;
+				padding-top: 30px;
+				padding-bottom: 20px;
+				color: grey;
+			}
+
+			.button-google {
+				margin: 20px;
+	
+			}
+
+			.sign-in-and-sign-up {
+				margin-bottom: 20px;
+				margin-left: 20px;
+				margin-right: 20px;
+				text-align: left;
+			}
 		}
 	}
 }
 
+//------------------ANIMACIONES------------------------//
+
+@mixin background-fade-in-and-out($name, $from, $to) {
+	@keyframes #{$name} {
+		#{$from} {
+			background: none;
+		}
+		#{$to} {
+			background: rgba(0, 0, 0, 0.3);
+		}
+	}
+}
+
+@include background-fade-in-and-out($name: background-fade-in, $from: "0%", $to: "100%");
+@include background-fade-in-and-out($name: background-fade-out, $from: "100%", $to: "0%");
+
+@mixin opacity-fade-in-and-out($name, $from, $to) {
+	@keyframes #{$name} {
+		#{$from} {
+			opacity: 0;
+		}
+		#{$to} {
+			opacity: 1;
+		}
+	}
+}
+
+@include opacity-fade-in-and-out($name: opacity-fade-in, $from: "0%", $to: "100%");
+@include opacity-fade-in-and-out($name: opacity-fade-out, $from: "100%", $to: "0%");
+
+@mixin transform-small-to-big-and-reverse($name, $from, $to) {
+	@keyframes #{$name} {
+		#{$from} {
+			padding-bottom: 0px;
+			padding-top: 0px;
+			padding-right: 0px;
+			padding-left: 0px;
+			width: 0px;
+			transform: scale(0);
+		}
+		#{$to} {
+			padding-bottom: 50px;
+			padding-top: 50px;
+			padding-right: 20px;
+			padding-left: 20px;
+			width: 600px;
+			transform: scale(0.7);
+		}
+	}
+}
+
+@include transform-small-to-big-and-reverse($name: small-to-big, $from: "0%", $to: "100%");
+@include transform-small-to-big-and-reverse($name: big-to-small, $from: "100%", $to: "0%");
